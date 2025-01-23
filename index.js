@@ -18,3 +18,12 @@ const todoRoutes = require("./routes/todoRoute");
 
 //mounting the todo api route
 app.use("/api/v1", todoRoutes);
+
+//Connect to DB  
+const dbConnect = require("./config/database");
+dbConnect();
+
+//default/starting point or route of application
+app.get("/", (req, res) => {
+    res.send(`<h1> This is Home Page</h1>`);
+})
